@@ -17,9 +17,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(5)
         setCellsView()
-        print(6)
         setMonthView()
         // Do any additional setup after loading the view.
     }
@@ -29,23 +27,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     {
         let width = (collectionView.frame.size.width - 2) / 8
         let height = (collectionView.frame.size.height - 2) / 8
-        print(width, height)
+
         let flowLayout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         flowLayout.itemSize = CGSize(width: width, height: height)
-        print(8)
-        
     }
     
     func setMonthView() {
         totalSquares.removeAll()
         
         let daysInMonth = CalendarHelper().daysInMonth(date: selectedDate)
-        print(11, daysInMonth)
         let firstDayOfMonth = CalendarHelper().firstOfMonth(date: selectedDate) + 10800
-        
-        print(12, firstDayOfMonth)
         let startingSpaces = CalendarHelper().weekDay(date: firstDayOfMonth)
-        print(13, startingSpaces)
         
         var count: Int = 1
         
@@ -59,7 +51,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             count += 1
         }
-        print(totalSquares)
+
         monthLabel.text = CalendarHelper().monthString(date: selectedDate) + " " + CalendarHelper().yearString(date: selectedDate)
         collectionView.reloadData()
     }
