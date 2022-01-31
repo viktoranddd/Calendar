@@ -47,7 +47,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             else {
                 totalSquares.append(String(count - startingSpaces))
-                print(1, String(count - startingSpaces))
             }
             count += 1
         }
